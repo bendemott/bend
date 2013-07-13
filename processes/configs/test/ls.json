@@ -1,0 +1,5 @@
+{
+	"title": "List Directory",
+	"desc": "This is a test process that lists a directory",
+	"cmd": "ls"
+}

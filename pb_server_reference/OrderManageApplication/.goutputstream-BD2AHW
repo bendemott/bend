@@ -1,0 +1,66 @@
+'''
+Perspective Broker Order Application Module.
+--------------------------------------------------------------------------------
+
+Our perspective broker servers work by importing application modules.
+Application modules are regular python modules that contain a class that
+inherits from tektwn.twisted.PbApplication
+'''
+
+#from pbplugins import PbApplication
+import os.path
+import sys
+sys.path.append("../../twisted_pbplugins")
+from pbplugins0_2 import PbApplication
+
+_dirpath = os.path.dirname(os.path.abspath(__file__))
+_search_index_path = os.path.join(_dirpath, "search/web_orders.idx")
+_search_config_path = os.path.join(_dirpath, "search/ordersearch.json")
+
+class CommerceOrderManagement(PbApplication):
+
+	search_searcher = None
+	"""
+	*search_searcher* (``lucene.IndexSearcher``) is the index searcher.
+	"""
+	
+	search_config = None
+	"""
+	*search_config* (``dict``) is the application's configuration.
+	"""
+	
+	search_mongo = None
+	"""
+	*search_mongo* (``txmongo.MongoAPI``) is the MongoDB connection.
+	"""
+	
+	search_order_db = None
+	"""
+	*search_order_db* (``txmongo.database.Database``) is the MongoDB
+	Orders database.
+	"""
+	
+	search_order_tb = None
+	"""
+	*search_order_tb* (``txmongo.collection.Collection``) is the MongoDB
+	Orders collection.
+	"""
+	
+	search_config_path = _search_config_path
+	
+	search_index_path = _search_index_path
+	"""
+	*search_index_path* (``str``) is the location of the Lucene Index.
+	"""
+
+	#server = ServerObject()
+	
+	#def applicationRegistered(cls, serverobject):
+	#	called when this application is first registered.
+	#	perform global initialization here
+
+	def ping(self):
+		return 'pong'
+
+#This must be set! - this is how the server finds the correct class in this module
+application = CommerceOrderManagement

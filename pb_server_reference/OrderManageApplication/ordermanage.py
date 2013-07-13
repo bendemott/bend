@@ -1,0 +1,135 @@
+'''
+Perspective Broker Order Application Module.
+--------------------------------------------------------------------------------
+
+Our perspective broker servers work by importing application modules.
+Application modules are regular python modules that contain a class that
+inherits from tektwn.twisted.PbApplication
+'''
+
+#from pbplugins import PbApplication
+import errno
+import json
+import math
+import os.path
+import sys
+
+import lucene
+import txmongo
+from twisted.internet import reactor
+
+sys.path.append("../../twisted_pbplugins")
+from pbplugins0_2 import PbApplication
+
+_dirpath = os.path.dirname(os.path.abspath(__file__))
+_search_config_path = os.path.join(_dirpath, "search/config.json")
+
+sys.path.append(os.path.join(_dirpath, "search_tests"))
+import tsttest
+
+class CommerceOrderManagement(PbApplication):
+
+	search_searcher = None
+	"""
+	*search_searcher* (``lucene.IndexSearcher``) is the index searcher.
+	"""
+	
+	search_config = None
+	"""
+	*search_config* (``dict``) is the search configuration.
+	"""
+	
+	search_config_path = _search_config_path
+	"""
+	*search_config_path* (``str``) is the filepath of the search
+	configuration.
+	"""
+	
+	search_mongo = None
+	"""
+	*search_mongo* (``txmongo.MongoAPI``) is the MongoDB connection.
+	"""
+	
+	search_order_db = None
+	"""
+	*search_order_db* (``txmongo.database.Database``) is the MongoDB
+	Orders database.
+	"""
+	
+	search_order_tb = None
+	"""
+	*search_order_tb* (``txmongo.collection.Collection``) is the MongoDB
+	Orders collection.
+	"""
+
+	#server = ServerObject()
+	
+	#def applicationRegistered(cls, serverobject):
+	#	called when this application is first registered.
+	#	perform global initialization here
+	
+	@classmethod
+	def applicationRegistered(cls, server):
+		"""
+		Called when the application is first registered (imported) into the
+		server.
+		
+		*server* (``twisted.spread.pb.Root``) is the server root instance.
+		"""
+		cls._init_search()
+		
+		#Initialize the ternary search tree for the phonenumber lookup
+		cls.phone_tst = tsttest.PhoneTST()		
+		cls.phone_tst.build_tst()
+		
+	@classmethod
+	def applicationUnregistered(cls):
+		"""
+		Called when the application is unregistered from the server.
+		"""
+		pass
+
+	@classmethod
+	def _init_search(cls):
+		"""
+		Initializes everything needed for search.
+		"""
+		config_path = cls.search_config_path
+		if not os.path.exists(config_path):
+			raise OSError(errno.ENOENT, "Config %r does not exist." % config_path, config_path)
+		config_dir = os.path.dirname(config_path)
+		
+		# Read config.
+		with open(config_path, 'rb') as fh:
+			config = json.load(fh)
+		cls.search_config = config
+		
+		# Connect to mongo.
+		host = config['mongo']['host']
+		port = config['mongo'].get('port', None) or 27017
+		thread_pool = reactor.getThreadPool()
+		pool_size = int(math.ceil((thread_pool.min + thread_pool.max) / 2))
+		cls.search_mongo = txmongo.lazyMongoConnectionPool(host=host, port=port, pool_size=pool_size)
+		cls.search_order_db = cls.search_mongo[config['mongo']['order_dbname']]
+		cls.search_order_tb = cls.search_order_db[config['mongo']['order_tbname']]
+		
+		# Initialize PyLucene.
+		lucene.initVM()
+		
+		# Open index.
+		index_path = os.path.abspath(os.path.join(config_dir, config['lucene']['index_path']))
+		if not os.path.exists(index_path):
+			raise OSError(errno.ENOENT, "Index %r does not exist." % index_path, index_path)
+		elif not os.path.isdir(index_path):
+			raise OSError(errno.ENOTDIR, "Index %r is not a directory." % index_path, index_path)
+		index_dir = lucene.NIOFSDirectory(lucene.File(index_path))
+		#index_dir = lucene.SimpleFSDirectory(lucene.File(index_path)) # windows
+		cls.search_searcher = lucene.IndexSearcher(index_dir)
+		
+		
+
+	def ping(self):
+		return 'pong'
+
+#This must be set! - this is how the server finds the correct class in this module
+application = CommerceOrderManagement

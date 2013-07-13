@@ -1,0 +1,10 @@
+{
+	"mongo": {
+		"host": "hol-srv-db00",
+		"order_dbname": "orders",
+		"order_tbname": "mysql_web_orders2"
+	},
+	"lucene": {
+		"index_path": "web_orders.idx"
+	}
+}

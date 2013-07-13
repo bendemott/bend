@@ -1,0 +1,476 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fab0a68391d, pid=1793, tid=140372448323328
+#
+# JRE version: 6.0_23-b23
+# Java VM: OpenJDK 64-Bit Server VM (20.0-b11 mixed mode linux-amd64 compressed oops)
+# Derivative: IcedTea6 1.11pre
+# Distribution: Ubuntu 11.10, package 6b23~pre11-0ubuntu1.11.10
+# Problematic frame:
+# C  [_lucene.so+0x4c491d]  _parseArgs(_object**, unsigned int, char*, ...)+0x22cd
+#
+# If you would like to submit a bug report, please include
+# instructions how to reproduce the bug and visit:
+#   https://bugs.launchpad.net/ubuntu/+source/openjdk-6/
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000002208000):  JavaThread "Thread-0" [_thread_in_native, id=1827, stack(0x00007fab016b2000,0x00007fab01eb3000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=2 (SEGV_ACCERR), si_addr=0x00007fab0a507548
+
+Registers:
+RAX=0x00007faafc1375b0, RBX=0x0000000000000000, RCX=0x00007fab0a1be640, RDX=0x00000000e8246c89
+RSP=0x00007fab01eb0690, RBP=0x00007fab0ae39320, RSI=0x4ce02464894cd824, RDI=0x0000000001a640b0
+R8 =0x0000000001a640b0, R9 =0x0000000000000723, R10=0x0000000000863340, R11=0x00007fab0c87509a
+R12=0x0000000000000000, R13=0x00007fab0a507540, R14=0x00007fab0aa2b520, R15=0x0000000001d87ca8
+RIP=0x00007fab0a68391d, EFLAGS=0x0000000000010202, CSGSFS=0x0000000000000033, ERR=0x0000000000000007
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007fab01eb0690)
+0x00007fab01eb0690:   00007fab048b3ae0 000000010000000a
+0x00007fab01eb06a0:   0000000002208000 00007fab0aa2b520
+0x00007fab01eb06b0:   00007fab77b5c22f 0000000000000000
+0x00007fab01eb06c0:   00007fab01eb0750 0000000200000001
+0x00007fab01eb06d0:   0000000000000000 4ce02464894cd824
+0x00007fab01eb06e0:   0000000002208000 00007fab01eb06f8
+0x00007fab01eb06f0:   0000000001f19620 0000000001f19648
+0x00007fab01eb0700:   0000000001f19a08 0000000002207240
+0x00007fab01eb0710:   00007fab01eb0740 00007fab01eb08b0
+0x00007fab01eb0720:   0000000001f19638 0000000001b905e0
+0x00007fab01eb0730:   0000000002208000 00007fab01eb07b0
+0x00007fab01eb0740:   00007fab01eb0760 00007fab0937ae95
+0x00007fab01eb0750:   00007fab0ae39330 00007faafc1375b0
+0x00007fab01eb0760:   00007fab77b5c22f 00007fab09385c13
+0x00007fab01eb0770:   00007fab01eb0759 0000000800000001
+0x00007fab01eb0780:   00000000022081d0 0000000001f049b8
+0x00007fab01eb0790:   0000000001f045e0 00007fab0939a3d0
+0x00007fab01eb07a0:   00007fab01eb0910 0000000001f045d0
+0x00007fab01eb07b0:   0000000000000000 00000000f251ef60
+0x00007fab01eb07c0:   00000000f23a7e68 0000000002208000
+0x00007fab01eb07d0:   0000000002fc5ae8 0000000000000000
+0x00007fab01eb07e0:   0000000001e637b8 0000000002208000
+0x00007fab01eb07f0:   000000001a50ca0c 000000001a01010c
+0x00007fab01eb0800:   00007fab01eb08c0 00007fab01eb07b8
+0x00007fab01eb0810:   00007fab01eb07f9 0000000800000001
+0x00007fab01eb0820:   00000000016cea00 000000000000000a
+0x00007fab01eb0830:   00007fab09a34030 0000000001f19640
+0x00007fab01eb0840:   0000000000000014 00007fab01eb08f0
+0x00007fab01eb0850:   0000000000000000 0000000000000009
+0x00007fab01eb0860:   0000000001f19638 00007fab0cb8a1c0
+0x00007fab01eb0870:   0000000000000038 0000000000000000
+0x00007fab01eb0880:   0000000001e637b8 0000000002208000 
+
+Instructions: (pc=0x00007fab0a68391d)
+0x00007fab0a6838fd:   8c 24 c0 00 00 00 48 89 4c 24 30 e8 03 ce e3 ff
+0x00007fab0a68390d:   48 8b 0d cc 6a 7c 00 41 8b 55 10 48 8b 74 24 48
+0x00007fab0a68391d:   49 89 45 08 48 8d 84 24 c0 00 00 00 48 8b 39 48
+0x00007fab0a68392d:   89 44 24 30 e8 aa d0 e3 ff 8b 44 24 20 48 8b 0d 
+
+Register to memory mapping:
+
+RAX=0x00007faafc1375b0 is a global jni handle
+RBX=0x0000000000000000 is an unknown value
+RCX=0x00007fab0a1be640: env+0 in /usr/local/lib/python2.7/dist-packages/JCC-2.11-py2.7-linux-x86_64.egg/libjcc.a at 0x00007fab09fb0000
+RDX=0x00000000e8246c89 is an unallocated location in the heap
+RSP=0x00007fab01eb0690 is pointing into the stack for thread: 0x0000000002208000
+RBP=0x00007fab0ae39320: _ZTVN4java4lang6ObjectE+0 in /usr/local/lib/python2.7/dist-packages/lucene-3.4.0-py2.7-linux-x86_64.egg/lucene/_lucene.so at 0x00007fab0a1bf000
+RSI=0x4ce02464894cd824 is an unknown value
+RDI=0x0000000001a640b0 is an unknown value
+R8 =0x0000000001a640b0 is an unknown value
+R9 =0x0000000000000723 is an unknown value
+R10=0x0000000000863340: <offset 0x463340> in python at 0x0000000000400000
+R11=0x00007fab0c87509a: <offset 0x8509a> in /lib/x86_64-linux-gnu/libc.so.6 at 0x00007fab0c7f0000
+R12=0x0000000000000000 is an unknown value
+R13=0x00007fab0a507540: _ZN3org6apache6lucene6search19BooleanClause$Occur15initializeClassEv+0 in /usr/local/lib/python2.7/dist-packages/lucene-3.4.0-py2.7-linux-x86_64.egg/lucene/_lucene.so at 0x00007fab0a1bf000
+R14=0x00007fab0aa2b520: <offset 0x86c520> in /usr/local/lib/python2.7/dist-packages/lucene-3.4.0-py2.7-linux-x86_64.egg/lucene/_lucene.so at 0x00007fab0a1bf000
+R15=0x0000000001d87ca8 is an unknown value
+
+
+Stack: [0x00007fab016b2000,0x00007fab01eb3000],  sp=0x00007fab01eb0690,  free space=8185k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [_lucene.so+0x4c491d]  _parseArgs(_object**, unsigned int, char*, ...)+0x22cd
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+=>0x0000000002208000 JavaThread "Thread-0" [_thread_in_native, id=1827, stack(0x00007fab016b2000,0x00007fab01eb3000)]
+  0x00007faafc179800 JavaThread "TimeLimitedCollector timer thread" daemon [_thread_blocked, id=1824, stack(0x00007fab0353b000,0x00007fab0363c000)]
+  0x00007faafc028800 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=1822, stack(0x00007fab03774000,0x00007fab03875000)]
+  0x00007faafc026000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=1821, stack(0x00007fab03875000,0x00007fab03976000)]
+  0x00007faafc023000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=1820, stack(0x00007fab03976000,0x00007fab03a77000)]
+  0x00007faafc021800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=1819, stack(0x00007fab03a77000,0x00007fab03b78000)]
+  0x0000000001e6d800 JavaThread "Finalizer" daemon [_thread_blocked, id=1818, stack(0x00007fab03b78000,0x00007fab03c79000)]
+  0x0000000001e6b800 JavaThread "Reference Handler" daemon [_thread_blocked, id=1817, stack(0x00007fab03c79000,0x00007fab03d7a000)]
+  0x0000000001d6a800 JavaThread "main" [_thread_in_native, id=1793, stack(0x00007fff876cd000,0x00007fff877cd000)]
+
+Other Threads:
+  0x0000000001e65800 VMThread [stack: 0x00007fab03d7a000,0x00007fab03e7b000] [id=1816]
+  0x00007faafc02b000 WatcherThread [stack: 0x00007fab03673000,0x00007fab03774000] [id=1823]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 17536K, used 4564K [0x00000000f2200000, 0x00000000f3460000, 0x0000000100000000)
+  eden space 16256K, 20% used [0x00000000f2200000,0x00000000f2538bb8,0x00000000f31e0000)
+  from space 1280K, 98% used [0x00000000f3320000,0x00000000f345c448,0x00000000f3460000)
+  to   space 1280K, 0% used [0x00000000f31e0000,0x00000000f31e0000,0x00000000f3320000)
+ PSOldGen        total 21504K, used 2802K [0x00000000d6600000, 0x00000000d7b00000, 0x00000000f2200000)
+  object space 21504K, 13% used [0x00000000d6600000,0x00000000d68bcb68,0x00000000d7b00000)
+ PSPermGen       total 21248K, used 8622K [0x00000000cc000000, 0x00000000cd4c0000, 0x00000000d6600000)
+  object space 21248K, 40% used [0x00000000cc000000,0x00000000cc86b800,0x00000000cd4c0000)
+
+Code Cache  [0x00007fab048a3000, 0x00007fab04b13000, 0x00007fab078a3000)
+ total_blobs=293 nmethods=54 adapters=194 free_code_cache=49773376 largest_free_block=16832
+
+Dynamic libraries:
+00400000-00633000 r-xp 00000000 fc:00 259703                             /usr/bin/python2.7
+00832000-00833000 r--p 00232000 fc:00 259703                             /usr/bin/python2.7
+00833000-0089c000 rw-p 00233000 fc:00 259703                             /usr/bin/python2.7
+0089c000-008ae000 rw-p 00000000 00:00 0 
+01390000-03138000 rw-p 00000000 00:00 0                                  [heap]
+cc000000-cd4c0000 rw-p 00000000 00:00 0 
+cd4c0000-d6600000 rw-p 00000000 00:00 0 
+d6600000-d7b00000 rw-p 00000000 00:00 0 
+d7b00000-f2200000 rw-p 00000000 00:00 0 
+f2200000-f3460000 rw-p 00000000 00:00 0 
+f3460000-100000000 rw-p 00000000 00:00 0 
+7faaf4000000-7faaf4022000 rw-p 00000000 00:00 0 
+7faaf4022000-7faaf8000000 ---p 00000000 00:00 0 
+7faafc000000-7faafc780000 rw-p 00000000 00:00 0 
+7faafc780000-7fab00000000 ---p 00000000 00:00 0 
+7fab00e80000-7fab00e8a000 r-xp 00000000 fc:00 294569                     /usr/local/lib/python2.7/dist-packages/fuzzy.so
+7fab00e8a000-7fab0108a000 ---p 0000a000 fc:00 294569                     /usr/local/lib/python2.7/dist-packages/fuzzy.so
+7fab0108a000-7fab0108b000 r--p 0000a000 fc:00 294569                     /usr/local/lib/python2.7/dist-packages/fuzzy.so
+7fab0108b000-7fab0108d000 rw-p 0000b000 fc:00 294569                     /usr/local/lib/python2.7/dist-packages/fuzzy.so
+7fab0108d000-7fab010a4000 r-xp 00000000 fc:00 259564                     /lib/x86_64-linux-gnu/libresolv-2.13.so
+7fab010a4000-7fab012a4000 ---p 00017000 fc:00 259564                     /lib/x86_64-linux-gnu/libresolv-2.13.so
+7fab012a4000-7fab012a5000 r--p 00017000 fc:00 259564                     /lib/x86_64-linux-gnu/libresolv-2.13.so
+7fab012a5000-7fab012a6000 rw-p 00018000 fc:00 259564                     /lib/x86_64-linux-gnu/libresolv-2.13.so
+7fab012a6000-7fab012a8000 rw-p 00000000 00:00 0 
+7fab012a8000-7fab012ae000 r-xp 00000000 fc:00 259565                     /lib/x86_64-linux-gnu/libnss_dns-2.13.so
+7fab012ae000-7fab014ad000 ---p 00006000 fc:00 259565                     /lib/x86_64-linux-gnu/libnss_dns-2.13.so
+7fab014ad000-7fab014ae000 r--p 00005000 fc:00 259565                     /lib/x86_64-linux-gnu/libnss_dns-2.13.so
+7fab014ae000-7fab014af000 rw-p 00006000 fc:00 259565                     /lib/x86_64-linux-gnu/libnss_dns-2.13.so
+7fab014af000-7fab014b1000 r-xp 00000000 fc:00 315562                     /lib/libnss_mdns4_minimal.so.2
+7fab014b1000-7fab016b0000 ---p 00002000 fc:00 315562                     /lib/libnss_mdns4_minimal.so.2
+7fab016b0000-7fab016b1000 r--p 00001000 fc:00 315562                     /lib/libnss_mdns4_minimal.so.2
+7fab016b1000-7fab016b2000 rw-p 00002000 fc:00 315562                     /lib/libnss_mdns4_minimal.so.2
+7fab016b2000-7fab016b5000 ---p 00000000 00:00 0 
+7fab016b5000-7fab01eb3000 rw-p 00000000 00:00 0 
+7fab01eb3000-7fab01ebf000 r-xp 00000000 fc:00 259563                     /lib/x86_64-linux-gnu/libnss_files-2.13.so
+7fab01ebf000-7fab020be000 ---p 0000c000 fc:00 259563                     /lib/x86_64-linux-gnu/libnss_files-2.13.so
+7fab020be000-7fab020bf000 r--p 0000b000 fc:00 259563                     /lib/x86_64-linux-gnu/libnss_files-2.13.so
+7fab020bf000-7fab020c0000 rw-p 0000c000 fc:00 259563                     /lib/x86_64-linux-gnu/libnss_files-2.13.so
+7fab020c0000-7fab020c1000 ---p 00000000 00:00 0 
+7fab020c1000-7fab028c1000 rw-p 00000000 00:00 0 
+7fab028c1000-7fab028c2000 ---p 00000000 00:00 0 
+7fab028c2000-7fab030c2000 rw-p 00000000 00:00 0 
+7fab0311c000-7fab03124000 r-xp 00000000 fc:00 155811                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libnio.so
+7fab03124000-7fab03323000 ---p 00008000 fc:00 155811                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libnio.so
+7fab03323000-7fab03324000 r--p 00007000 fc:00 155811                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libnio.so
+7fab03324000-7fab03325000 rw-p 00008000 fc:00 155811                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libnio.so
+7fab03325000-7fab0333a000 r-xp 00000000 fc:00 156114                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libnet.so
+7fab0333a000-7fab03539000 ---p 00015000 fc:00 156114                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libnet.so
+7fab03539000-7fab0353a000 r--p 00014000 fc:00 156114                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libnet.so
+7fab0353a000-7fab0353b000 rw-p 00015000 fc:00 156114                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libnet.so
+7fab0353b000-7fab0353e000 ---p 00000000 00:00 0 
+7fab0353e000-7fab0363c000 rw-p 00000000 00:00 0 
+7fab0363c000-7fab03643000 r--s 000fb000 fc:00 401538                     /usr/lib/jvm/java-6-openjdk/jre/lib/resources.jar
+7fab03643000-7fab03646000 r--s 00077000 fc:00 401528                     /usr/lib/jvm/java-6-openjdk/jre/lib/ext/localedata.jar
+7fab03646000-7fab0364f000 r--s 000c7000 fc:00 297177                     /usr/local/lib/python2.7/dist-packages/lucene-3.4.0-py2.7-linux-x86_64.egg/lucene/lucene-analyzers-3.4.0.jar
+7fab0364f000-7fab03652000 r--s 0007d000 fc:00 401507                     /usr/lib/jvm/java-6-openjdk/jre/lib/jsse.jar
+7fab03652000-7fab03669000 r--s 0013f000 fc:00 297185                     /usr/local/lib/python2.7/dist-packages/lucene-3.4.0-py2.7-linux-x86_64.egg/lucene/lucene-core-3.4.0.jar
+7fab03669000-7fab03671000 r--s 00066000 fc:00 409936                     /usr/share/java/gnome-java-bridge.jar
+7fab03671000-7fab03673000 r--s 0000f000 fc:00 401532                     /usr/lib/jvm/java-6-openjdk/jre/lib/ext/pulse-java.jar
+7fab03673000-7fab03674000 ---p 00000000 00:00 0 
+7fab03674000-7fab03774000 rw-p 00000000 00:00 0 
+7fab03774000-7fab03777000 ---p 00000000 00:00 0 
+7fab03777000-7fab03875000 rw-p 00000000 00:00 0 
+7fab03875000-7fab03878000 ---p 00000000 00:00 0 
+7fab03878000-7fab03976000 rw-p 00000000 00:00 0 
+7fab03976000-7fab03979000 ---p 00000000 00:00 0 
+7fab03979000-7fab03a77000 rw-p 00000000 00:00 0 
+7fab03a77000-7fab03a7a000 ---p 00000000 00:00 0 
+7fab03a7a000-7fab03b78000 rw-p 00000000 00:00 0 
+7fab03b78000-7fab03b7b000 ---p 00000000 00:00 0 
+7fab03b7b000-7fab03c79000 rw-p 00000000 00:00 0 
+7fab03c79000-7fab03c7c000 ---p 00000000 00:00 0 
+7fab03c7c000-7fab03d7a000 rw-p 00000000 00:00 0 
+7fab03d7a000-7fab03d7b000 ---p 00000000 00:00 0 
+7fab03d7b000-7fab0417e000 rw-p 00000000 00:00 0 
+7fab0417e000-7fab0430f000 r--s 037b8000 fc:00 401542                     /usr/lib/jvm/java-6-openjdk/jre/lib/rt.jar
+7fab0430f000-7fab04310000 ---p 00000000 00:00 0 
+7fab04310000-7fab04410000 rw-p 00000000 00:00 0 
+7fab04410000-7fab04411000 ---p 00000000 00:00 0 
+7fab04411000-7fab0451c000 rw-p 00000000 00:00 0 
+7fab0451c000-7fab04564000 rw-p 00000000 00:00 0 
+7fab04564000-7fab0456f000 rw-p 00000000 00:00 0 
+7fab0456f000-7fab04642000 rw-p 00000000 00:00 0 
+7fab04642000-7fab0464d000 rw-p 00000000 00:00 0 
+7fab0464d000-7fab04695000 rw-p 00000000 00:00 0 
+7fab04695000-7fab046a0000 rw-p 00000000 00:00 0 
+7fab046a0000-7fab04773000 rw-p 00000000 00:00 0 
+7fab04773000-7fab0477d000 rw-p 00000000 00:00 0 
+7fab0477d000-7fab047e2000 rw-p 00000000 00:00 0 
+7fab047e2000-7fab047ed000 rw-p 00000000 00:00 0 
+7fab047ed000-7fab048a3000 rw-p 00000000 00:00 0 
+7fab048a3000-7fab04b13000 rwxp 00000000 00:00 0 
+7fab04b13000-7fab078a3000 rw-p 00000000 00:00 0 
+7fab078a3000-7fab078aa000 r-xp 00000000 fc:00 165212                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libzip.so
+7fab078aa000-7fab07aa9000 ---p 00007000 fc:00 165212                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libzip.so
+7fab07aa9000-7fab07aaa000 r--p 00006000 fc:00 165212                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libzip.so
+7fab07aaa000-7fab07aab000 rw-p 00007000 fc:00 165212                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libzip.so
+7fab07aab000-7fab07ae0000 r--s 00000000 fc:00 17128                      /var/cache/nscd/passwd
+7fab07ae0000-7fab07b0c000 r-xp 00000000 fc:00 165211                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libjava.so
+7fab07b0c000-7fab07d0b000 ---p 0002c000 fc:00 165211                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libjava.so
+7fab07d0b000-7fab07d0c000 r--p 0002b000 fc:00 165211                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libjava.so
+7fab07d0c000-7fab07d0f000 rw-p 0002c000 fc:00 165211                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libjava.so
+7fab07d0f000-7fab07d1d000 r-xp 00000000 fc:00 156113                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libverify.so
+7fab07d1d000-7fab07f1c000 ---p 0000e000 fc:00 156113                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libverify.so
+7fab07f1c000-7fab07f1e000 r--p 0000d000 fc:00 156113                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libverify.so
+7fab07f1e000-7fab07f1f000 rw-p 0000f000 fc:00 156113                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/libverify.so
+7fab07f1f000-7fab07f26000 r-xp 00000000 fc:00 259552                     /lib/x86_64-linux-gnu/librt-2.13.so
+7fab07f26000-7fab08125000 ---p 00007000 fc:00 259552                     /lib/x86_64-linux-gnu/librt-2.13.so
+7fab08125000-7fab08126000 r--p 00006000 fc:00 259552                     /lib/x86_64-linux-gnu/librt-2.13.so
+7fab08126000-7fab08127000 rw-p 00007000 fc:00 259552                     /lib/x86_64-linux-gnu/librt-2.13.so
+7fab08127000-7fab08195000 r-xp 00000000 fc:00 297127                     /usr/local/lib/python2.7/dist-packages/JCC-2.11-py2.7-linux-x86_64.egg/jcc/_jcc.so
+7fab08195000-7fab08395000 ---p 0006e000 fc:00 297127                     /usr/local/lib/python2.7/dist-packages/JCC-2.11-py2.7-linux-x86_64.egg/jcc/_jcc.so
+7fab08395000-7fab08397000 r--p 0006e000 fc:00 297127                     /usr/local/lib/python2.7/dist-packages/JCC-2.11-py2.7-linux-x86_64.egg/jcc/_jcc.so
+7fab08397000-7fab0839d000 rw-p 00070000 fc:00 297127                     /usr/local/lib/python2.7/dist-packages/JCC-2.11-py2.7-linux-x86_64.egg/jcc/_jcc.so
+7fab0839d000-7fab0839f000 rw-p 00000000 00:00 0 
+7fab0839f000-7fab083a3000 r-xp 00000000 fc:00 260524                     /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7fab083a3000-7fab085a2000 ---p 00004000 fc:00 260524                     /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7fab085a2000-7fab085a3000 r--p 00003000 fc:00 260524                     /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7fab085a3000-7fab085a4000 rw-p 00004000 fc:00 260524                     /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7fab085a4000-7fab085c3000 r-xp 00000000 fc:00 265085                     /usr/lib/python2.7/lib-dynload/_ctypes.so
+7fab085c3000-7fab087c3000 ---p 0001f000 fc:00 265085                     /usr/lib/python2.7/lib-dynload/_ctypes.so
+7fab087c3000-7fab087c4000 r--p 0001f000 fc:00 265085                     /usr/lib/python2.7/lib-dynload/_ctypes.so
+7fab087c4000-7fab087c8000 rw-p 00020000 fc:00 265085                     /usr/lib/python2.7/lib-dynload/_ctypes.so
+7fab087c8000-7fab087c9000 rw-p 00000000 00:00 0 
+7fab087c9000-7fab087cf000 r-xp 00000000 fc:00 144204                     /home/rdadmin/src/txmongo/txmongo/_pymongo/_cbson.so
+7fab087cf000-7fab089ce000 ---p 00006000 fc:00 144204                     /home/rdadmin/src/txmongo/txmongo/_pymongo/_cbson.so
+7fab089ce000-7fab089cf000 r--p 00005000 fc:00 144204                     /home/rdadmin/src/txmongo/txmongo/_pymongo/_cbson.so
+7fab089cf000-7fab089d0000 rw-p 00006000 fc:00 144204                     /home/rdadmin/src/txmongo/txmongo/_pymongo/_cbson.so
+7fab089d0000-7fab08c50000 r-xp 00000000 fc:00 279385                     /usr/lib/libpython2.7.so.1.0
+7fab08c50000-7fab08e4f000 ---p 00280000 fc:00 279385                     /usr/lib/libpython2.7.so.1.0
+7fab08e4f000-7fab08e51000 r--p 0027f000 fc:00 279385                     /usr/lib/libpython2.7.so.1.0
+7fab08e51000-7fab08eba000 rw-p 00281000 fc:00 279385                     /usr/lib/libpython2.7.so.1.0
+7fab08eba000-7fab08ecc000 rw-p 00000000 00:00 0 
+7fab08ecc000-7fab097cf000 r-xp 00000000 fc:00 165214                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/server/libjvm.so
+7fab097cf000-7fab099ce000 ---p 00903000 fc:00 165214                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/server/libjvm.so
+7fab099ce000-7fab09a4f000 r--p 00902000 fc:00 165214                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/server/libjvm.so
+7fab09a4f000-7fab09a6a000 rw-p 00983000 fc:00 165214                     /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/server/libjvm.so
+7fab09a6a000-7fab09a93000 rw-p 00000000 00:00 0 
+7fab09a93000-7fab09aa8000 r-xp 00000000 fc:00 259319                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fab09aa8000-7fab09ca7000 ---p 00015000 fc:00 259319                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fab09ca7000-7fab09ca8000 r--p 00014000 fc:00 259319                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fab09ca8000-7fab09ca9000 rw-p 00015000 fc:00 259319                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fab09ca9000-7fab09d91000 r-xp 00000000 fc:00 264397                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16
+7fab09d91000-7fab09f91000 ---p 000e8000 fc:00 264397                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16
+7fab09f91000-7fab09f99000 r--p 000e8000 fc:00 264397                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16
+7fab09f99000-7fab09f9b000 rw-p 000f0000 fc:00 264397                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.16
+7fab09f9b000-7fab09fb0000 rw-p 00000000 00:00 0 
+7fab09fb0000-7fab09fbe000 r-xp 00000000 fc:00 297110                     /usr/local/lib/python2.7/dist-packages/JCC-2.11-py2.7-linux-x86_64.egg/libjcc.a
+7fab09fbe000-7fab0a1bd000 ---p 0000e000 fc:00 297110                     /usr/local/lib/python2.7/dist-packages/JCC-2.11-py2.7-linux-x86_64.egg/libjcc.a
+7fab0a1bd000-7fab0a1be000 r--p 0000d000 fc:00 297110                     /usr/local/lib/python2.7/dist-packages/JCC-2.11-py2.7-linux-x86_64.egg/libjcc.a
+7fab0a1be000-7fab0a1bf000 rw-p 0000e000 fc:00 297110                     /usr/local/lib/python2.7/dist-packages/JCC-2.11-py2.7-linux-x86_64.egg/libjcc.a
+7fab0a1bf000-7fab0ac3a000 r-xp 00000000 fc:00 297186                     /usr/local/lib/python2.7/dist-packages/lucene-3.4.0-py2.7-linux-x86_64.egg/lucene/_lucene.so
+7fab0ac3a000-7fab0ae39000 ---p 00a7b000 fc:00 297186                     /usr/local/lib/python2.7/dist-packages/lucene-3.4.0-py2.7-linux-x86_64.egg/lucene/_lucene.so
+7fab0ae39000-7fab0ae55000 r--p 00a7a000 fc:00 297186                     /usr/local/lib/python2.7/dist-packages/lucene-3.4.0-py2.7-linux-x86_64.egg/lucene/_lucene.so
+7fab0ae55000-7fab0aefb000 rw-p 00a96000 fc:00 297186                     /usr/local/lib/python2.7/dist-packages/lucene-3.4.0-py2.7-linux-x86_64.egg/lucene/_lucene.so
+7fab0aefb000-7fab0af02000 rw-p 00000000 00:00 0 
+7fab0af02000-7fab0af0a000 r-xp 00000000 fc:00 265053                     /usr/lib/python2.7/lib-dynload/_json.so
+7fab0af0a000-7fab0b109000 ---p 00008000 fc:00 265053                     /usr/lib/python2.7/lib-dynload/_json.so
+7fab0b109000-7fab0b10a000 r--p 00007000 fc:00 265053                     /usr/lib/python2.7/lib-dynload/_json.so
+7fab0b10a000-7fab0b10b000 rw-p 00008000 fc:00 265053                     /usr/lib/python2.7/lib-dynload/_json.so
+7fab0b10b000-7fab0b10c000 r-xp 00000000 fc:00 14070                      /usr/lib/python2.7/dist-packages/twisted/internet/_sigchld.so
+7fab0b10c000-7fab0b30b000 ---p 00001000 fc:00 14070                      /usr/lib/python2.7/dist-packages/twisted/internet/_sigchld.so
+7fab0b30b000-7fab0b30c000 r--p 00000000 fc:00 14070                      /usr/lib/python2.7/dist-packages/twisted/internet/_sigchld.so
+7fab0b30c000-7fab0b30d000 rw-p 00001000 fc:00 14070                      /usr/lib/python2.7/dist-packages/twisted/internet/_sigchld.so
+7fab0b30d000-7fab0b311000 r-xp 00000000 fc:00 265066                     /usr/lib/python2.7/lib-dynload/termios.so
+7fab0b311000-7fab0b510000 ---p 00004000 fc:00 265066                     /usr/lib/python2.7/lib-dynload/termios.so
+7fab0b510000-7fab0b511000 r--p 00003000 fc:00 265066                     /usr/lib/python2.7/lib-dynload/termios.so
+7fab0b511000-7fab0b513000 rw-p 00004000 fc:00 265066                     /usr/lib/python2.7/lib-dynload/termios.so
+7fab0b513000-7fab0b526000 r-xp 00000000 fc:00 265049                     /usr/lib/python2.7/lib-dynload/datetime.so
+7fab0b526000-7fab0b725000 ---p 00013000 fc:00 265049                     /usr/lib/python2.7/lib-dynload/datetime.so
+7fab0b725000-7fab0b726000 r--p 00012000 fc:00 265049                     /usr/lib/python2.7/lib-dynload/datetime.so
+7fab0b726000-7fab0b72a000 rw-p 00013000 fc:00 265049                     /usr/lib/python2.7/lib-dynload/datetime.so
+7fab0b72a000-7fab0b735000 r-xp 00000000 fc:00 279600                     /usr/lib/python2.7/dist-packages/OpenSSL/SSL.so
+7fab0b735000-7fab0b934000 ---p 0000b000 fc:00 279600                     /usr/lib/python2.7/dist-packages/OpenSSL/SSL.so
+7fab0b934000-7fab0b935000 r--p 0000a000 fc:00 279600                     /usr/lib/python2.7/dist-packages/OpenSSL/SSL.so
+7fab0b935000-7fab0b939000 rw-p 0000b000 fc:00 279600                     /usr/lib/python2.7/dist-packages/OpenSSL/SSL.so
+7fab0b939000-7fab0b93b000 r-xp 00000000 fc:00 279598                     /usr/lib/python2.7/dist-packages/OpenSSL/rand.so
+7fab0b93b000-7fab0bb3a000 ---p 00002000 fc:00 279598                     /usr/lib/python2.7/dist-packages/OpenSSL/rand.so
+7fab0bb3a000-7fab0bb3b000 r--p 00001000 fc:00 279598                     /usr/lib/python2.7/dist-packages/OpenSSL/rand.so
+7fab0bb3b000-7fab0bb3c000 rw-p 00002000 fc:00 279598                     /usr/lib/python2.7/dist-packages/OpenSSL/rand.so
+7fab0bb3c000-7fab0bb4c000 r-xp 00000000 fc:00 279597                     /usr/lib/python2.7/dist-packages/OpenSSL/crypto.so
+7fab0bb4c000-7fab0bd4b000 ---p 00010000 fc:00 279597                     /usr/lib/python2.7/dist-packages/OpenSSL/crypto.so
+7fab0bd4b000-7fab0bd4c000 r--p 0000f000 fc:00 279597                     /usr/lib/python2.7/dist-packages/OpenSSL/crypto.so
+7fab0bd4c000-7fab0bd52000 rw-p 00010000 fc:00 279597                     /usr/lib/python2.7/dist-packages/OpenSSL/crypto.so
+7fab0bd52000-7fab0bd53000 r-xp 00000000 fc:00 14073                      /usr/lib/python2.7/dist-packages/twisted/python/_initgroups.so
+7fab0bd53000-7fab0bf52000 ---p 00001000 fc:00 14073                      /usr/lib/python2.7/dist-packages/twisted/python/_initgroups.so
+7fab0bf52000-7fab0bf53000 r--p 00000000 fc:00 14073                      /usr/lib/python2.7/dist-packages/twisted/python/_initgroups.so
+7fab0bf53000-7fab0bf54000 rw-p 00001000 fc:00 14073                      /usr/lib/python2.7/dist-packages/twisted/python/_initgroups.so
+7fab0bf54000-7fab0bfd6000 rw-p 00000000 00:00 0 
+7fab0bfd6000-7fab0bfdb000 r-xp 00000000 fc:00 13411                      /usr/lib/python2.7/dist-packages/zope/interface/_zope_interface_coptimizations.so
+7fab0bfdb000-7fab0c1db000 ---p 00005000 fc:00 13411                      /usr/lib/python2.7/dist-packages/zope/interface/_zope_interface_coptimizations.so
+7fab0c1db000-7fab0c1dc000 r--p 00005000 fc:00 13411                      /usr/lib/python2.7/dist-packages/zope/interface/_zope_interface_coptimizations.so
+7fab0c1dc000-7fab0c1de000 rw-p 00006000 fc:00 13411                      /usr/lib/python2.7/dist-packages/zope/interface/_zope_interface_coptimizations.so
+7fab0c1de000-7fab0c29f000 rw-p 00000000 00:00 0 
+7fab0c2a0000-7fab0c322000 rw-p 00000000 00:00 0 
+7fab0c322000-7fab0c325000 r-xp 00000000 fc:00 265051                     /usr/lib/python2.7/lib-dynload/_heapq.so
+7fab0c325000-7fab0c524000 ---p 00003000 fc:00 265051                     /usr/lib/python2.7/lib-dynload/_heapq.so
+7fab0c524000-7fab0c525000 r--p 00002000 fc:00 265051                     /usr/lib/python2.7/lib-dynload/_heapq.so
+7fab0c525000-7fab0c527000 rw-p 00003000 fc:00 265051                     /usr/lib/python2.7/lib-dynload/_heapq.so
+7fab0c527000-7fab0c7f0000 r--p 00000000 fc:00 267072                     /usr/lib/locale/locale-archive
+7fab0c7f0000-7fab0c985000 r-xp 00000000 fc:00 259560                     /lib/x86_64-linux-gnu/libc-2.13.so
+7fab0c985000-7fab0cb84000 ---p 00195000 fc:00 259560                     /lib/x86_64-linux-gnu/libc-2.13.so
+7fab0cb84000-7fab0cb88000 r--p 00194000 fc:00 259560                     /lib/x86_64-linux-gnu/libc-2.13.so
+7fab0cb88000-7fab0cb89000 rw-p 00198000 fc:00 259560                     /lib/x86_64-linux-gnu/libc-2.13.so
+7fab0cb89000-7fab0cb8f000 rw-p 00000000 00:00 0 
+7fab0cb8f000-7fab0cc12000 r-xp 00000000 fc:00 259570                     /lib/x86_64-linux-gnu/libm-2.13.so
+7fab0cc12000-7fab0ce11000 ---p 00083000 fc:00 259570                     /lib/x86_64-linux-gnu/libm-2.13.so
+7fab0ce11000-7fab0ce12000 r--p 00082000 fc:00 259570                     /lib/x86_64-linux-gnu/libm-2.13.so
+7fab0ce12000-7fab0ce13000 rw-p 00083000 fc:00 259570                     /lib/x86_64-linux-gnu/libm-2.13.so
+7fab0ce13000-7fab0ce2a000 r-xp 00000000 fc:00 263598                     /lib/x86_64-linux-gnu/libz.so.1.2.3.4
+7fab0ce2a000-7fab0d029000 ---p 00017000 fc:00 263598                     /lib/x86_64-linux-gnu/libz.so.1.2.3.4
+7fab0d029000-7fab0d02a000 r--p 00016000 fc:00 263598                     /lib/x86_64-linux-gnu/libz.so.1.2.3.4
+7fab0d02a000-7fab0d02b000 rw-p 00017000 fc:00 263598                     /lib/x86_64-linux-gnu/libz.so.1.2.3.4
+7fab0d02b000-7fab0d1b3000 r-xp 00000000 fc:00 260238                     /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
+7fab0d1b3000-7fab0d3b3000 ---p 00188000 fc:00 260238                     /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
+7fab0d3b3000-7fab0d3cc000 r--p 00188000 fc:00 260238                     /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
+7fab0d3cc000-7fab0d3d6000 rw-p 001a1000 fc:00 260238                     /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
+7fab0d3d6000-7fab0d3da000 rw-p 00000000 00:00 0 
+7fab0d3da000-7fab0d424000 r-xp 00000000 fc:00 260239                     /lib/x86_64-linux-gnu/libssl.so.1.0.0
+7fab0d424000-7fab0d623000 ---p 0004a000 fc:00 260239                     /lib/x86_64-linux-gnu/libssl.so.1.0.0
+7fab0d623000-7fab0d626000 r--p 00049000 fc:00 260239                     /lib/x86_64-linux-gnu/libssl.so.1.0.0
+7fab0d626000-7fab0d62b000 rw-p 0004c000 fc:00 260239                     /lib/x86_64-linux-gnu/libssl.so.1.0.0
+7fab0d62b000-7fab0d62d000 r-xp 00000000 fc:00 259571                     /lib/x86_64-linux-gnu/libutil-2.13.so
+7fab0d62d000-7fab0d82c000 ---p 00002000 fc:00 259571                     /lib/x86_64-linux-gnu/libutil-2.13.so
+7fab0d82c000-7fab0d82d000 r--p 00001000 fc:00 259571                     /lib/x86_64-linux-gnu/libutil-2.13.so
+7fab0d82d000-7fab0d82e000 rw-p 00002000 fc:00 259571                     /lib/x86_64-linux-gnu/libutil-2.13.so
+7fab0d82e000-7fab0d830000 r-xp 00000000 fc:00 259561                     /lib/x86_64-linux-gnu/libdl-2.13.so
+7fab0d830000-7fab0da30000 ---p 00002000 fc:00 259561                     /lib/x86_64-linux-gnu/libdl-2.13.so
+7fab0da30000-7fab0da31000 r--p 00002000 fc:00 259561                     /lib/x86_64-linux-gnu/libdl-2.13.so
+7fab0da31000-7fab0da32000 rw-p 00003000 fc:00 259561                     /lib/x86_64-linux-gnu/libdl-2.13.so
+7fab0da32000-7fab0da4a000 r-xp 00000000 fc:00 259568                     /lib/x86_64-linux-gnu/libpthread-2.13.so
+7fab0da4a000-7fab0dc49000 ---p 00018000 fc:00 259568                     /lib/x86_64-linux-gnu/libpthread-2.13.so
+7fab0dc49000-7fab0dc4a000 r--p 00017000 fc:00 259568                     /lib/x86_64-linux-gnu/libpthread-2.13.so
+7fab0dc4a000-7fab0dc4b000 rw-p 00018000 fc:00 259568                     /lib/x86_64-linux-gnu/libpthread-2.13.so
+7fab0dc4b000-7fab0dc4f000 rw-p 00000000 00:00 0 
+7fab0dc4f000-7fab0dc70000 r-xp 00000000 fc:00 259567                     /lib/x86_64-linux-gnu/ld-2.13.so
+7fab0dc9e000-7fab0dda2000 rw-p 00000000 00:00 0 
+7fab0ddc6000-7fab0ddcd000 r--s 00000000 fc:00 261821                     /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7fab0ddcd000-7fab0ddce000 rw-p 00000000 00:00 0 
+7fab0ddce000-7fab0ddcf000 r--s 00005000 fc:00 297184                     /usr/local/lib/python2.7/dist-packages/lucene-3.4.0-py2.7-linux-x86_64.egg/lucene/lucene-join-3.4.0.jar
+7fab0ddcf000-7fab0ddd2000 r--s 0000d000 fc:00 297172                     /usr/local/lib/python2.7/dist-packages/lucene-3.4.0-py2.7-linux-x86_64.egg/lucene/lucene-grouping-3.4.0.jar
+7fab0ddd2000-7fab0ddd4000 r--s 0000a000 fc:00 297180                     /usr/local/lib/python2.7/dist-packages/lucene-3.4.0-py2.7-linux-x86_64.egg/lucene/lucene-queries-3.4.0.jar
+7fab0ddd4000-7fab0de5b000 rw-p 00000000 00:00 0 
+7fab0de5b000-7fab0de5d000 r--s 00003000 fc:00 297171                     /usr/local/lib/python2.7/dist-packages/lucene-3.4.0-py2.7-linux-x86_64.egg/lucene/extensions.jar
+7fab0de5d000-7fab0de60000 r--s 00012000 fc:00 297167                     /usr/local/lib/python2.7/dist-packages/lucene-3.4.0-py2.7-linux-x86_64.egg/lucene/lucene-highlighter-3.4.0.jar
+7fab0de60000-7fab0de68000 rw-s 00000000 fc:00 123                        /tmp/hsperfdata_caleb/1793
+7fab0de68000-7fab0de69000 rwxp 00000000 00:00 0 
+7fab0de69000-7fab0de6b000 r--s 00006000 fc:00 297166                     /usr/local/lib/python2.7/dist-packages/lucene-3.4.0-py2.7-linux-x86_64.egg/lucene/lucene-memory-3.4.0.jar
+7fab0de6b000-7fab0de6c000 rw-p 00000000 00:00 0 
+7fab0de6c000-7fab0de6d000 r--p 00000000 00:00 0 
+7fab0de6d000-7fab0de6f000 rw-p 00000000 00:00 0 
+7fab0de6f000-7fab0de70000 r--p 00020000 fc:00 259567                     /lib/x86_64-linux-gnu/ld-2.13.so
+7fab0de70000-7fab0de72000 rw-p 00021000 fc:00 259567                     /lib/x86_64-linux-gnu/ld-2.13.so
+7fff876cd000-7fff876d0000 ---p 00000000 00:00 0 
+7fff876d1000-7fff877cd000 rw-p 00000000 00:00 0                          [stack]
+7fff877ff000-7fff87800000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+java_command: <unknown>
+Launcher Type: generic
+
+Environment Variables:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+SHELL=/bin/bash
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x783e60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x783e60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x6485c0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x6485c0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x6485c0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x6485c0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x648770], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x64b280], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [+0xf13d0], sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGTERM: [+0xf13d0], sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGQUIT: [libjvm.so+0x64b280], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Ubuntu 11.10 (oneiric)
+uname:Linux 3.0.0-12-server #20-Ubuntu SMP Fri Oct 7 16:36:30 UTC 2011 x86_64
+libc:glibc 2.13 NPTL 2.13 
+rlimit: STACK 8192k, CORE 0k, NPROC 15923, NOFILE 4096, AS infinity
+load average:0.08 0.06 0.07
+
+/proc/meminfo:
+MemTotal:        2056292 kB
+MemFree:          420364 kB
+Buffers:          148992 kB
+Cached:           782848 kB
+SwapCached:        76112 kB
+Active:           866832 kB
+Inactive:         600716 kB
+Active(anon):     297176 kB
+Inactive(anon):   242928 kB
+Active(file):     569656 kB
+Inactive(file):   357788 kB
+Unevictable:        3984 kB
+Mlocked:            3984 kB
+SwapTotal:       2097148 kB
+SwapFree:        1616280 kB
+Dirty:               216 kB
+Writeback:             0 kB
+AnonPages:        503096 kB
+Mapped:            38288 kB
+Shmem:              1560 kB
+Slab:              96964 kB
+SReclaimable:      74456 kB
+SUnreclaim:        22508 kB
+KernelStack:        3056 kB
+PageTables:        27884 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     3125292 kB
+Committed_AS:    2232952 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      274396 kB
+VmallocChunk:   34359461052 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       55296 kB
+DirectMap2M:     2041856 kB
+
+
+CPU:total 2 (1 cores per cpu, 1 threads per core) family 6 model 15 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3
+
+Memory: 4k page, physical 2056292k(420364k free), swap 2097148k(1616280k free)
+
+vm_info: OpenJDK 64-Bit Server VM (20.0-b11) for linux-amd64 JRE (1.6.0_23-b23), built on Oct 22 2011 01:00:57 by "buildd" with gcc 4.6.1
+
+time: Mon Jul  9 11:47:59 2012
+elapsed time: 3 seconds
+

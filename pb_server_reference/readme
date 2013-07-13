@@ -1,0 +1,9 @@
+This was the work that was accomplished on Perspective Broker.
+(this directory is for reference purposes)
+
+The "OrderManageApplication" folder represents the server-side implementation
+and use of the "application" standard that Wes and (Ben) were working on for
+one of the desktop applications.
+
+The "twistedpb_server_1.2" folder represents the classes required to change
+the default PB behavior.

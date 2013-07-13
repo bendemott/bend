@@ -1,0 +1,18 @@
+This readme will be updated soon.
+
+
+
+Outlined features:
+
+-A new Broker interface that doesn't require subclasses to use a decorator or their methods to be prefixed
+-FTP file/transfer file-system support built into the messaging protocol, with other methods to test/check file-transfer tokens and progress.  (optionally encrypted?)
+-SSH support for Broker communication
+-A system for server discovery (unicast, multicast)
+-A "container" for server PB applications, so the PB server is started independent of each application.
+-A new "root object" system so the name of the application is requested first, instead of the root object.
+-A import system for remote objects, such that modules expose interfaces and remote objects are retrieved using a dot syntax  ->  application.get_interface("data.customer.orders")
+-A command line system for "attaching" and "starting" servers, status... with a menu system to view processes, logs, a list of containers, etc
+-A "process system" for creating process queues, communicating process status, and wrapping existing processes.  
+-A built in HTTP server that you can view information about containers, users, connections, etc
+-PB Server support for "clustering" (possibly integrating pb.spread?) - awareness of cluster neighbors, and election system for high-availability.  Part of the clustering standard would be automatic transport of the "container" application and it's dependencies through a standard using the python ecosystem.
+-A PB client wrapper for support for server discovery, secure authentication, automatic request retry, multiple-servers, etc.
